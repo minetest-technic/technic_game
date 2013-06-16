@@ -1,0 +1,94 @@
+README file for Plantlife mod, by Vanessa Ezekowitz
+---------------------------------------------------
+
+Plantlife is a combined form of my Flowers, Jungle Grass, and Poison Ivy mods 
+and has been significantly rewritten and re-organized.  This mod supplies all 
+three of these components and should be 100% compatible with mods that used the 
+old versions.
+
+Its purpose is to add various kinds of flowers, cotton plants, water foliage, 
+poison ivy, and jungle grass in a few sizes.  All of these are spawned as 
+normal nodes and can be collected and used in any recipes that depend on the 
+old mods.
+
+Spawning of plants is sensitive to the amount of available light.  Flowers, 
+cotton, and waterlilies only spawn when there at least a signficant amount of 
+light.  Seaweed will grow only in dimly-lit areas.  Jungle grass and poison ivy 
+also grow in the daytime, but require less light than flowers.
+
+Growing of jungle grass and poison ivy will only occur for plants that are on 
+the same surface that is necessary for them to spawn on, so they won't grow if 
+placed on e.g. cobble or homedecor flower pot, etc.  This doesn't affect 
+wall-climbing poison ivy, since it uses a different growth pattern.
+
+All plants use perlin noise to keep where they grow under control - no more 
+random spread of plants!  In addition, the density of the plants in any region 
+they appear in has been fixed and brought under control.
+
+Poison ivy is found sparsely among junglegrass, but will not grow near flowers.
+
+------------------------------------------------------------------------------
+
+Important details:
+
+Configuration: Any of the three components of this mod can be disabled by 
+editing plants/init.lua, near the beginning of the file, and changing one or 
+more of these lines to false:
+
+local enable_flowers = true
+local enable_junglegrass = true
+local enable_poisonivy = true
+
+Dependencies: Just the game's default stuff.
+
+Recommends: Nothing in particular.
+
+Conflicts: This mod should not be installed alongside the original Flowers, 
+Jungle Grass, or Poison Ivy mods.  If those exist, delete them, as this mod 
+supplies all of their functionality.
+
+Software Requirements: This mod required Minetest 0.4.4 from January 7, 2013 or 
+later.  It will NOT work with any prior version.
+
+------------------------------------------------------------------------------
+
+Crafting:
+
+Only Flowers have crafting recipes.  For a flower pot, put three
+clay bricks in the crafting grid in a "v" shape like so (yields 1):
+
+	- - -
+	B - B
+	- B -
+
+To put a flower into a pot, just put one of each into the crafting grid.
+
+------------------------------------------------------------------------------
+
+Notes:
+
+Flowers has been completely rewritten, almost from scratch, using the most 
+recent and advanced features the game engine has to offer.  It should be 
+significantly faster than the original Ironzorg Flowers mod.  Flowers and 
+cotton spawn on grass only, seaweed spawns on water or grass close to the 
+shoreline, or on very small stone islands in water.  Waterlilies of course 
+spawn on water.
+
+There are four different sizes of jungle grasses, all of which yield a single 
+junglegrass object when gathered (so all four sizes may be used where jungle 
+grass is called for).  The largest size uses the game's standard jungle grass 
+node, while the others are defined by this mod.
+
+Junglegrass will spawn on grass, sand, desert sand and the tops of papyrus and 
+cactus (though rarely), and will do so anywhere in the map.  Grass on the 
+ground will grow and eventually disappear (die), while grass in the desert will 
+grow and eventually turn into dry shrubs.
+
+Poison Ivy will spawn on grass and in some cases, on vertical surfaces 
+including trees and jungle trees where they meet the dirt or grass.  Ivy 
+previously spawned on the ground taller/thicker or start climbing up said 
+vertical surfaces and trees.
+
+At present, the poison ivy presents little more than an annoyance - they can 
+only be cut down and either re-planted or thrown away.  No damage is done by 
+harvesting them, yet. ;-)
