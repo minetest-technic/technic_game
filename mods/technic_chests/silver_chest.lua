@@ -55,7 +55,7 @@ minetest.register_node(":technic:silver_chest", {
 		meta:set_string("formspec",
 				silver_chest_formspec..
 				"label[0,0;Silver Chest]"..
-				"image_button[2.5,.1;.6,.6;pencil_icon.png;edit_infotext;]")
+				"image_button[3.5,.1;.6,.6;pencil_icon.png;edit_infotext;]")
 		meta:set_string("infotext", "Silver Chest")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 11*4)
@@ -73,12 +73,12 @@ minetest.register_node(":technic:silver_chest", {
       	end
 		local formspec = silver_chest_formspec.."label[0,0;Silver Chest]"
 		if page=="main" then
-			formspec = formspec.."image_button[2.5,.1;.6,.6;pencil_icon.png;edit_infotext;]"
-			formspec = formspec.."label[3,0;"..meta:get_string("infotext").."]"
+			formspec = formspec.."image_button[3.5,.1;.6,.6;pencil_icon.png;edit_infotext;]"
+			formspec = formspec.."label[4,0;"..meta:get_string("infotext").."]"
 		end
 		if page=="edit_infotext" then
-			formspec = formspec.."image_button[2.5,.1;.6,.6;ok_icon.png;save_infotext;]"
-			formspec = formspec.."field[3.3,.2;6,1;infotext_box;Edit chest description:;"..meta:get_string("infotext").."]"
+			formspec = formspec.."image_button[3.5,.1;.6,.6;ok_icon.png;save_infotext;]"
+			formspec = formspec.."field[4.3,.2;6,1;infotext_box;Edit chest description:;"..meta:get_string("infotext").."]"
 		end			
 		meta:set_string("formspec",formspec)
 	end,
@@ -108,7 +108,7 @@ minetest.register_node(":technic:silver_locked_chest", {
 		meta:set_string("formspec",
 				silver_chest_formspec..
 				"label[0,0;Silver Locked Chest]"..
-				"image_button[2.5,.1;.6,.6;pencil_icon.png;edit_infotext;]")
+				"image_button[3.5,.1;.6,.6;pencil_icon.png;edit_infotext;]")
 		meta:set_string("owner", "")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 11*4)
@@ -126,12 +126,12 @@ minetest.register_node(":technic:silver_locked_chest", {
       	end
 		local formspec = silver_chest_formspec.."label[0,0;Silver Locked Chest]"
 		if page=="main" then
-			formspec = formspec.."image_button[2.5,.1;.6,.6;pencil_icon.png;edit_infotext;]"
-			formspec = formspec.."label[3,0;"..meta:get_string("infotext").."]"
+			formspec = formspec.."image_button[3.5,.1;.6,.6;pencil_icon.png;edit_infotext;]"
+			formspec = formspec.."label[4,0;"..meta:get_string("infotext").."]"
 		end
 		if page=="edit_infotext" then
-			formspec = formspec.."image_button[2.5,.1;.6,.6;ok_icon.png;save_infotext;]"
-			formspec = formspec.."field[3.3,.2;6,1;infotext_box;Edit chest description:;"..meta:get_string("infotext").."]"
+			formspec = formspec.."image_button[3.5,.1;.6,.6;ok_icon.png;save_infotext;]"
+			formspec = formspec.."field[4.3,.2;6,1;infotext_box;Edit chest description:;"..meta:get_string("infotext").."]"
 		end			
 		meta:set_string("formspec",formspec)
 	end,
