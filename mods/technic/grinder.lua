@@ -198,15 +198,18 @@ minetest.register_craftitem("technic:grinder", {
 grinder_formspec =
 	"invsize[8,9;]"..
 	"image[1,1;1,2;technic_power_meter_bg.png]"..
-	"label[0,0;Grinder]"..
+	"label[0,0;LV Grinder]"..
 	"label[1,3;Power level]"..
 	"list[current_name;src;3,1;1,1;]"..
 	"list[current_name;dst;5,1;2,2;]"..
-	"list[current_player;main;0,5;8,4;]"
+	"list[current_player;main;0,5;8,4;]"..
+	"background[-0.19,-0.25,;8.4,9.75;ui_form_bg.png]"..
+	"background[0,0;8,4;ui_lv_grinder.png]"..
+	"background[0,5;8,4;ui_main_inventory.png]"
 
 
 minetest.register_node("technic:grinder", {
-	description = "Grinder",
+	description = "LV Grinder",
 	tiles = {"technic_lv_grinder_top.png", "technic_lv_grinder_bottom.png", "technic_lv_grinder_side.png",
 		"technic_lv_grinder_side.png", "technic_lv_grinder_side.png", "technic_lv_grinder_front.png"},
 	paramtype2 = "facedir",
@@ -278,15 +281,9 @@ minetest.register_abm({
 
 	local load = math.floor((charge/max_charge)*100)
 	meta:set_string("formspec",
-				"invsize[8,9;]"..
+				grinder_formspec..
 				"image[1,1;1,2;technic_power_meter_bg.png^[lowpart:"..
-						(load)..":technic_power_meter_fg.png]"..
-				"label[0,0;Grinder]"..
-				"label[1,3;Power level]"..
-				"list[current_name;src;3,1;1,1;]"..
-				"list[current_name;dst;5,1;2,2;]"..
-				"list[current_player;main;0,5;8,4;]"
-				)
+						(load)..":technic_power_meter_fg.png]")
 
 		local inv = meta:get_inventory()
 		local srclist = inv:get_list("src")
