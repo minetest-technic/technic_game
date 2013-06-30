@@ -54,7 +54,7 @@ technic_cnc_api.register_all("default:sandstone",
 ---------
 technic_cnc_api.register_all("default:leaves",
                 {snappy=2,choppy=2,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
-                {"bucharest_tree.png"},
+                {"default_leaves.png"},
                 "Leaves")
 -- TREE
 -------
