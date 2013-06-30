@@ -11,7 +11,7 @@
 
 plantslib = {}
 
-local DEBUG = true --... except if you want to spam the console with debugging info :-)
+local DEBUG = false --... except if you want to spam the console with debugging info :-)
 
 plantslib.plantlife_seed_diff = 329	-- needs to be global so other mods can see it
 
@@ -36,7 +36,9 @@ plantslib.perlin_humidity = PerlinNoise(humidity_seeddiff, humidity_octaves, hum
 
 -- Local functions
 
-math.randomseed(os.time())
+local function dump_pos(pos)
+	return "{x="..pos.x..",y="..pos.y..",z="..pos.z.."}"
+end
 
 function plantslib:is_node_loaded(node_pos)
 	n = minetest.env:get_node_or_nil(node_pos)
@@ -169,9 +171,9 @@ function plantslib:search_for_surfaces(minp, maxp, biomedef, node_or_function_or
 
 						elseif type(node_or_function_or_model) == "string" then
 							if not minetest.registered_nodes[node_or_function_or_model] then
-								plantslib:dbg("Call function: "..node_or_function_or_model.."("..dump(pos)..")")
+								plantslib:dbg("Call function: "..node_or_function_or_model.."("..dump_pos(pos)..")")
 								local t2=os.clock()
-								assert(loadstring(node_or_function_or_model.."("..dump(pos)..")"))()
+								assert(loadstring(node_or_function_or_model.."("..dump_pos(pos)..")"))()
 								plantslib:dbg("Executed that function in ".. (os.clock()-t2)*1000 .."ms")
 							else
 								plantslib:dbg("Add node: "..node_or_function_or_model.." at ("..dump(p_top)..")")
@@ -264,8 +266,8 @@ function plantslib:spawn_on_surfaces(sd,sp,sr,sc,ss,sa)
 								plantslib:dbg("Gave it a random facedir: "..fdir)
 							end
 							if type(spawn_plants) == "string" then
-								plantslib:dbg("Call function: "..spawn_plants.."("..dump(pos)..")")
-								assert(loadstring(spawn_plants.."("..dump(pos)..")"))()
+								plantslib:dbg("Call function: "..spawn_plants.."("..dump_pos(pos)..")")
+								assert(loadstring(spawn_plants.."("..dump_pos(pos)..")"))()
 							elseif not biome.spawn_on_side and not biome.spawn_on_bottom and not biome.spawn_replace_node then
 								if n_top.name == "air" then
 									plantslib:dbg("Spawn: "..plant_to_spawn.." on top of ("..dump(pos).."); facedir="..fdir)
@@ -365,8 +367,8 @@ function plantslib:replace_object(pos, replacement, grow_function, walldir, seed
 		local perlin1 = minetest.env:get_perlin(seeddiff, perlin_octaves, perlin_persistence, perlin_scale)
 		local noise1 = perlin1:get2d({x=pos.x, y=pos.z})
 		local noise2 = plantslib.perlin_temperature:get2d({x=pos.x, y=pos.z})
-		plantslib:dbg("Grow: call function "..grow_function.."("..dump(pos)..","..noise1..","..noise2..","..dump(walldir)..")")
-		assert(loadstring(grow_function.."("..dump(pos)..","..noise1..","..noise2..","..dump(walldir)..")"))()
+		plantslib:dbg("Grow: call function "..grow_function.."("..dump_pos(pos)..","..noise1..","..noise2..","..dump(walldir)..")")
+		assert(loadstring(grow_function.."("..dump_pos(pos)..","..noise1..","..noise2..","..dump(walldir)..")"))()
 		return
 	elseif growtype == "nil" then
 		plantslib:dbg("Grow: place "..replacement.." at ("..dump(pos)..") on wall "..dump(walldir))

@@ -164,7 +164,7 @@ for i in ipairs(flowers_list) do
 		output = "flowers:potted_"..flower,
 		recipe = {
 			"flowers:flower_pot",
-			"flowers:flower_"..flower
+			"flowers:"..flower
 		}
 	})
 
