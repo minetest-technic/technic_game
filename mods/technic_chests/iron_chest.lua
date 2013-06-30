@@ -51,8 +51,8 @@ minetest.register_node(":technic:iron_chest", {
 				"list[current_name;main;0,1;9,4;]"..
 				"list[current_player;main;0,6;8,4;]"..
 				"background[-0.19,-0.25,;9.4,10.75;ui_form_bg.png]"..
-				"background[0.06,0.99;8.92,4.0;ui_iron_chest_inventory.png]"..
-				"background[0.06,5.99;7.92,4.0;ui_main_inventory.png]")
+				"background[0,1;9,4;ui_iron_chest_inventory.png]"..
+				"background[0,6;8,4;ui_main_inventory.png]")
 		meta:set_string("infotext", "Iron Chest")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 9*4)
@@ -86,8 +86,8 @@ minetest.register_node(":technic:iron_locked_chest", {
 				"list[current_name;main;0,1;9,4;]"..
 				"list[current_player;main;0,6;8,4;]"..
 				"background[-0.19,-0.25,;9.4,10.75;ui_form_bg.png]"..
-				"background[0.06,0.99;8.92,4.0;ui_iron_chest_inventory.png]"..
-				"background[0.06,5.99;7.92,4.0;ui_main_inventory.png]")
+				"background[0,1;9,4;ui_iron_chest_inventory.png]"..
+				"background[0,6;8,4;ui_main_inventory.png]")
 		meta:set_string("infotext", "Iron Locked Chest")
 		meta:set_string("owner", "")
 		local inv = meta:get_inventory()
