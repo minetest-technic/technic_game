@@ -51,9 +51,12 @@ minetest.register_craftitem(":technic:gold_locked_chest", {
 	stack_max = 99,
 })
 
-gold_chest_formspec	=	"invsize[12,9;]"..
-						"list[current_name;main;0,0;12,4;]"..
-						"list[current_player;main;0,5;8,4;]"
+gold_chest_formspec	=	"invsize[12,10;]"..
+						"list[current_name;main;0,1;12,4;]"..
+						"list[current_player;main;0,6;8,4;]"..
+						"background[-0.19,-0.25,;12.4,10.75;ui_form_bg.png]"..
+						"background[0,1;12,4;ui_gold_chest_inventory.png]"..
+						"background[0,6;8,4;ui_main_inventory.png]"
 
 gold_chest_inv_size = 12*4
 
@@ -69,7 +72,7 @@ minetest.register_node(":technic:gold_chest", {
 
 	on_construct = function(pos)
 		local meta = minetest.env:get_meta(pos)
-		meta:set_string("formspec",gold_chest_formspec)
+		meta:set_string("formspec",gold_chest_formspec.."label[0,0;Gold Chest]")
 		meta:set_string("infotext", "Gold Chest")
 		local inv = meta:get_inventory()
 		inv:set_size("main", gold_chest_inv_size)
@@ -86,7 +89,7 @@ minetest.register_node(":technic:gold_chest", {
 	fields.text = fields.text or ""
 	meta:set_string("text", fields.text)
 	meta:set_string("infotext", '"'..fields.text..'"')
-	meta:set_string("formspec",gold_chest_formspec)
+	meta:set_string("formspec",gold_chest_formspec.."label[0,0;Gold Chest]")
 	end,
 
 	on_metadata_inventory_move = def_on_metadata_inventory_move,
@@ -107,7 +110,7 @@ minetest.register_node(":technic:gold_chest".. state, {
 	drop = "technic:gold_chest",
 	on_construct = function(pos)
 		local meta = minetest.env:get_meta(pos)
-		meta:set_string("formspec",gold_chest_formspec)
+		meta:set_string("formspec",gold_chest_formspec.."label[0,0;Gold Chest]")
 		meta:set_string("infotext", "Gold Chest")
 		local inv = meta:get_inventory()
 		inv:set_size("main", gold_chest_inv_size)
@@ -151,7 +154,7 @@ minetest.register_node(":technic:gold_locked_chest", {
 	end,
 	on_construct = function(pos)
 		local meta = minetest.env:get_meta(pos)
-		meta:set_string("formspec",gold_chest_formspec)
+		meta:set_string("formspec",gold_chest_formspec.."label[0,0;Gold Locked Chest]")
 		meta:set_string("infotext", "Gold Locked Chest")
 		meta:set_string("owner", "")
 		local inv = meta:get_inventory()
@@ -172,7 +175,7 @@ minetest.register_node(":technic:gold_locked_chest", {
 		fields.text = fields.text or ""
 		meta:set_string("text", fields.text)
 		meta:set_string("infotext", '"'..fields.text..'"')
-		meta:set_string("formspec",gold_chest_formspec)
+		meta:set_string("formspec",gold_chest_formspec.."label[0,0;Gold Locked Chest]")
 	end,
 
 	allow_metadata_inventory_move = def_allow_metadata_inventory_move,
@@ -202,7 +205,7 @@ minetest.register_node(":technic:gold_locked_chest".. state, {
 	end,
 	on_construct = function(pos)
 		local meta = minetest.env:get_meta(pos)
-		meta:set_string("formspec",gold_chest_formspec)
+		meta:set_string("formspec",gold_chest_formspec.."label[0,0;Gold Locked Chest]")
 		meta:set_string("infotext", "Gold Locked Chest")
 		meta:set_string("owner", "")
 		local inv = meta:get_inventory()
@@ -223,7 +226,7 @@ minetest.register_node(":technic:gold_locked_chest".. state, {
 		fields.text = fields.text or ""
 		meta:set_string("text", fields.text)
 		meta:set_string("infotext", '"'..fields.text..'"')
-		meta:set_string("formspec",gold_chest_formspec)
+		meta:set_string("formspec",gold_chest_formspec.."label[0,0;Gold Locked Chest]")
 	end,
 
 	allow_metadata_inventory_move = def_allow_metadata_inventory_move,

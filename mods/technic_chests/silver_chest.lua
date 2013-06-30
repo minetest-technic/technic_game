@@ -45,9 +45,13 @@ minetest.register_node(":technic:silver_chest", {
 	on_construct = function(pos)
 		local meta = minetest.env:get_meta(pos)
 		meta:set_string("formspec",
-				"invsize[11,9;]"..
-				"list[current_name;main;0,0;11,4;]"..
-				"list[current_player;main;0,5;8,4;]")
+				"invsize[11,10;]"..
+				"label[0,0;Silver Chest]"..
+				"list[current_name;main;0,1;11,4;]"..
+				"list[current_player;main;0,6;8,4;]"..
+				"background[-0.19,-0.25,;11.4,10.75;ui_form_bg.png]"..
+				"background[0,1;11,4;ui_silver_chest_inventory.png]"..
+				"background[0,6;8,4;ui_main_inventory.png]")
 		meta:set_string("infotext", "Silver Chest")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 11*4)
@@ -66,9 +70,13 @@ minetest.register_node(":technic:silver_chest", {
 		meta:set_string("infotext", '"'..fields.text..'"')
 
 		meta:set_string("formspec",
-				"invsize[11,9;]"..
-				"list[current_name;main;0,0;11,4;]"..
-				"list[current_player;main;0,5;8,4;]")
+				"invsize[11,10;]"..
+				"label[0,0;Silver Chest]"..
+				"list[current_name;main;0,1;11,4;]"..
+				"list[current_player;main;0,6;8,4;]"..
+				"background[-0.19,-0.25,;11.4,10.75;ui_form_bg.png]"..
+				"background[0,1;11,4;ui_silver_chest_inventory.png]"..
+				"background[0,6;8,4;ui_main_inventory.png]")
 	end,
 
 	on_metadata_inventory_move = def_on_metadata_inventory_move,
@@ -94,9 +102,13 @@ minetest.register_node(":technic:silver_locked_chest", {
 	on_construct = function(pos)
 		local meta = minetest.env:get_meta(pos)
 		meta:set_string("formspec",
-				"invsize[11,9;]"..
-				"list[current_name;main;0,0;11,4;]"..
-				"list[current_player;main;0,5;8,4;]")
+				"invsize[11,10;]"..
+				"label[0,0;Silver Locked Chest]"..
+				"list[current_name;main;0,1;11,4;]"..
+				"list[current_player;main;0,6;8,4;]"..
+				"background[-0.19,-0.25,;11.4,10.75;ui_form_bg.png]"..
+				"background[0,1;11,4;ui_silver_chest_inventory.png]"..
+				"background[0,6;8,4;ui_main_inventory.png]")
 		meta:set_string("infotext", "Silver Locked Chest")
 		meta:set_string("owner", "")
 		local inv = meta:get_inventory()
@@ -116,9 +128,13 @@ minetest.register_node(":technic:silver_locked_chest", {
 		meta:set_string("infotext", '"'..fields.text..'"')
 
 		meta:set_string("formspec",
-				"invsize[11,9;]"..
-				"list[current_name;main;0,0;11,4;]"..
-				"list[current_player;main;0,5;8,4;]")
+				"invsize[11,10;]"..
+				"label[0,0;Silver Locked Chest]"..
+				"list[current_name;main;0,1;11,4;]"..
+				"list[current_player;main;0,6;8,4;]"..
+				"background[-0.19,-0.25,;11.4,10.75;ui_form_bg.png]"..
+				"background[0,1;11,4;ui_silver_chest_inventory.png]"..
+				"background[0,6;8,4;ui_main_inventory.png]")
 	end,
 
 
