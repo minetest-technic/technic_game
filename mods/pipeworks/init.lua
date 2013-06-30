@@ -14,6 +14,7 @@
 
 minetest.register_alias("pipeworks:pipe", "pipeworks:pipe_110000_empty")
 local DEBUG = false
+local CYCLIC = true
 
 pipeworks_liquid_texture = "default_water.png"
 
@@ -366,18 +367,18 @@ end
 end
 end
 
-dofile(minetest.get_modpath("pipeworks").."/tubes.lua")
-dofile(minetest.get_modpath("pipeworks").."/devices.lua")
-dofile(minetest.get_modpath("pipeworks").."/autoplace.lua")
-dofile(minetest.get_modpath("pipeworks").."/crafts.lua")
-dofile(minetest.get_modpath("pipeworks").."/flowing_logic.lua")
-dofile(minetest.get_modpath("pipeworks").."/compat.lua")
-dofile(minetest.get_modpath("pipeworks").."/item_transport.lua")
-dofile(minetest.get_modpath("pipeworks").."/autocrafter.lua")
+local modpath = minetest.get_modpath("pipeworks")
 
-minetest.register_alias("pipeworks:deployer_off", "technic:deployer_off")
-minetest.register_alias("pipeworks:deployer_on", "technic:deployer_on")
-minetest.register_alias("pipeworks:nodebreaker_off", "technic:node_breaker_off")
-minetest.register_alias("pipeworks:nodebreaker_on", "technic:node_breaker_on")
+dofile(modpath.."/tubes.lua")
+dofile(modpath.."/teleport_tube.lua")
+dofile(modpath.."/devices.lua")
+dofile(modpath.."/autoplace.lua")
+dofile(modpath.."/crafts.lua")
+dofile(modpath.."/flowing_logic.lua")
+dofile(modpath.."/compat.lua")
+dofile(modpath.."/item_transport.lua")
+dofile(modpath.."/autocrafter.lua")
+dofile(modpath.."/deployer.lua")
+dofile(modpath.."/node_breaker.lua")
 
 print("Pipeworks loaded!")

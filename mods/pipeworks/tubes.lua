@@ -249,8 +249,11 @@ for zp = 0, 1 do
 			nodedef[key]=value
 		end
 	end
-	
-	minetest.register_node(name.."_"..tname, nodedef)
+
+	local prefix=":"
+	if string.find(name, "pipeworks:") then prefix = "" end
+
+	minetest.register_node(prefix..name.."_"..tname, nodedef)
 
 end
 end
@@ -432,15 +435,31 @@ register_tube("pipeworks:detector_tube_off","Detector tube segment",detector_pla
 	mesecons={receptor={state="off",
 				rules=mesecons_rules}}})
 
-register_tube("pipeworks:conductor_tube_off","Conductor tube segment",detector_plain_textures,noctr_textures,
-	end_textures,short_texture,detector_inv_texture,
+conductor_plain_textures={"pipeworks_conductor_tube_plain.png","pipeworks_conductor_tube_plain.png","pipeworks_conductor_tube_plain.png",
+		"pipeworks_conductor_tube_plain.png","pipeworks_conductor_tube_plain.png","pipeworks_conductor_tube_plain.png"}
+conductor_noctr_textures={"pipeworks_conductor_tube_noctr.png","pipeworks_conductor_tube_noctr.png","pipeworks_conductor_tube_noctr.png",
+		"pipeworks_conductor_tube_noctr.png","pipeworks_conductor_tube_noctr.png","pipeworks_conductor_tube_noctr.png"}
+conductor_end_textures={"pipeworks_conductor_tube_end.png","pipeworks_conductor_tube_end.png","pipeworks_conductor_tube_end.png",
+		"pipeworks_conductor_tube_end.png","pipeworks_conductor_tube_end.png","pipeworks_conductor_tube_end.png"}
+conductor_short_texture="pipeworks_conductor_tube_short.png"
+conductor_inv_texture="pipeworks_conductor_tube_inv.png"
+
+register_tube("pipeworks:conductor_tube_off","Conductor tube segment",conductor_plain_textures,conductor_noctr_textures,
+	conductor_end_textures,conductor_short_texture,conductor_inv_texture,
 	{groups={mesecon=2},
 	mesecons={conductor={state="off",
 				rules=mesecons_rules,
 				onstate="pipeworks:conductor_tube_on_#id"}}})
 
-register_tube("pipeworks:conductor_tube_on","Conductor tube segment on (you hacker you)",detector_plain_textures,noctr_textures,
-	end_textures,short_texture,detector_inv_texture,
+conductor_on_plain_textures={"pipeworks_conductor_tube_on_plain.png","pipeworks_conductor_tube_on_plain.png","pipeworks_conductor_tube_on_plain.png",
+		"pipeworks_conductor_tube_on_plain.png","pipeworks_conductor_tube_on_plain.png","pipeworks_conductor_tube_on_plain.png"}
+conductor_on_noctr_textures={"pipeworks_conductor_tube_on_noctr.png","pipeworks_conductor_tube_on_noctr.png","pipeworks_conductor_tube_on_noctr.png",
+		"pipeworks_conductor_tube_on_noctr.png","pipeworks_conductor_tube_on_noctr.png","pipeworks_conductor_tube_on_noctr.png"}
+conductor_on_end_textures={"pipeworks_conductor_tube_on_end.png","pipeworks_conductor_tube_on_end.png","pipeworks_conductor_tube_on_end.png",
+		"pipeworks_conductor_tube_on_end.png","pipeworks_conductor_tube_on_end.png","pipeworks_conductor_tube_on_end.png"}
+
+register_tube("pipeworks:conductor_tube_on","Conductor tube segment on (you hacker you)",conductor_on_plain_textures,conductor_on_noctr_textures,
+	conductor_on_end_textures,conductor_short_texture,conductor_inv_texture,
 	{groups={mesecon=2,not_in_creative_inventory=1},
 	drop="pipeworks:conductor_tube_off_000000",
 	mesecons={conductor={state="on",
@@ -461,6 +480,12 @@ register_tube("pipeworks:accelerator_tube","Accelerator pneumatic tube segment",
 		{tube={can_go=function(pos,node,velocity,stack)
 			velocity.speed=velocity.speed+1
 			return notvel(meseadjlist,velocity)
+		end}})
+
+register_tube("pipeworks:crossing_tube","Crossing tube segment",accelerator_plain_textures,
+		accelerator_noctr_textures,accelerator_end_textures,accelerator_short_texture,accelerator_inv_texture,
+		{tube={can_go=function(pos,node,velocity,stack)
+			return velocity
 		end}})
 
 sand_noctr_textures={"pipeworks_sand_tube_noctr.png","pipeworks_sand_tube_noctr.png","pipeworks_sand_tube_noctr.png",
@@ -490,7 +515,6 @@ minetest.register_abm({nodenames={"group:sand_tube"},interval=1,chance=1,
 				object:remove()
 			end
 		end
-	end})
+	end
+})
 
-modpath=minetest.get_modpath("pipeworks")
-dofile(modpath.."/teleport_tube.lua")

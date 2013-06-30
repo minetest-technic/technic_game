@@ -33,6 +33,9 @@ minetest.register_node("pipeworks:filter", {
 	after_place_node = function(pos)
 		tube_scanforobjects(pos)
 	end,
+	after_dig_node = function(pos)
+		tube_scanforobjects(pos)
+	end,
 	mesecons={effector={action_on=function(pos,node)
 					minetest.registered_nodes[node.name].on_punch(pos,node,nil)
 				end}},
@@ -125,6 +128,12 @@ minetest.register_node("pipeworks:mese_filter", {
 		local inv = meta:get_inventory()
 		return inv:is_empty("main")
 	end,
+	after_place_node = function(pos)
+		tube_scanforobjects(pos)
+	end,
+	after_dig_node = function(pos)
+		tube_scanforobjects(pos)
+	end,
 	mesecons={effector={action_on=function(pos,node)
 					minetest.registered_nodes[node.name].on_punch(pos,node,nil)
 				end}},
@@ -205,7 +214,8 @@ minetest.register_entity("pipeworks:tubed_item", {
 	initial_properties = {
 		hp_max = 1,
 		physical = false,
-		collisionbox = {0,0,0,0,0,0},
+--		collisionbox = {0,0,0,0,0,0},
+		collisionbox = {0.1,0.1,0.1,0.1,0.1,0.1},
 		visual = "sprite",
 		visual_size = {x=0.5, y=0.5},
 		textures = {""},
@@ -455,7 +465,9 @@ function go_next(pos,velocity,stack)
 					break
 				end
 			until false
-			meta:set_int("tubedir",n)
+			if CYCLIC then
+				meta:set_int("tubedir",n)
+			end
 			velocity.x=tubes[n].vect.x*vel.speed
 			velocity.y=tubes[n].vect.y*vel.speed
 			velocity.z=tubes[n].vect.z*vel.speed
@@ -474,6 +486,9 @@ function go_next(pos,velocity,stack)
 				break
 			end
 		until false
+		if CYCLIC then
+			meta:set_int("tubedir",n)
+		end
 		velocity.x=chests[n].vect.x*speed
 		velocity.y=chests[n].vect.y*speed
 		velocity.z=chests[n].vect.z*speed
