@@ -60,7 +60,7 @@ battery_box_formspec =
 	"label[5,0;Discharge]"..
 	"label[1,3;Power level]"..
 	"list[current_player;main;0,5;8,4;]"..
-	"background[-0.19,-0.25,;8.4,9.75;ui_form_bg.png]"..
+	"background[-0.19,-0.25;8.4,9.75;ui_form_bg.png]"..
 	"background[0,0;8,4;ui_lv_battery_box.png]"..
 	"background[0,5;8,4;ui_main_inventory.png]"
 

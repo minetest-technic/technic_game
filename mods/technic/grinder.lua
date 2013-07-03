@@ -203,7 +203,7 @@ grinder_formspec =
 	"list[current_name;src;3,1;1,1;]"..
 	"list[current_name;dst;5,1;2,2;]"..
 	"list[current_player;main;0,5;8,4;]"..
-	"background[-0.19,-0.25,;8.4,9.75;ui_form_bg.png]"..
+	"background[-0.19,-0.25;8.4,9.75;ui_form_bg.png]"..
 	"background[0,0;8,4;ui_lv_grinder.png]"..
 	"background[0,5;8,4;ui_main_inventory.png]"
 

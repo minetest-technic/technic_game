@@ -37,7 +37,7 @@ silver_chest_formspec =
 				"invsize[11,10;]"..
 				"list[current_name;main;0,1;11,4;]"..
 				"list[current_player;main;0,6;8,4;]"..
-				"background[-0.19,-0.25,;11.4,10.75;ui_form_bg.png]"..
+				"background[-0.19,-0.25;11.4,10.75;ui_form_bg.png]"..
 				"background[0,1;11,4;ui_silver_chest_inventory.png]"..
 				"background[0,6;8,4;ui_main_inventory.png]"
 				

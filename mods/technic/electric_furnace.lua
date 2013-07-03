@@ -16,7 +16,7 @@ electric_furnace_formspec =
 	"list[current_player;main;0,5;8,4;]"..
 	"label[0,0;LV Electric Furnace]"..
 	"label[1,3;Power level]"..
-	"background[-0.19,-0.25,;8.4,9.75;ui_form_bg.png]"..
+	"background[-0.19,-0.25;8.4,9.75;ui_form_bg.png]"..
 	"background[0,0;8,4;ui_lv_electric_furnace.png]"..
 	"background[0,5;8,4;ui_main_inventory.png]"
 	

@@ -48,7 +48,7 @@ minetest.register_node(":technic:copper_chest", {
 				"label[0,0;Copper Chest]"..
 				"list[current_name;main;0,1;10,4;]"..
 				"list[current_player;main;0,6;8,4;]"..
-				"background[-0.19,-0.25,;10.4,10.75;ui_form_bg.png]"..
+				"background[-0.19,-0.25;10.4,10.75;ui_form_bg.png]"..
 				"background[0,1;10,4;ui_copper_chest_inventory.png]"..
 				"background[0,6;8,4;ui_main_inventory.png]")
 		meta:set_string("infotext", "Copper Chest")
@@ -84,7 +84,7 @@ minetest.register_node(":technic:copper_locked_chest", {
 				"label[0,0;Copper Locked Chest]"..
 				"list[current_name;main;0,1;10,4;]"..
 				"list[current_player;main;0,6;8,4;]"..
-				"background[-0.19,-0.25,;10.4,10.75;ui_form_bg.png]"..
+				"background[-0.19,-0.25;10.4,10.75;ui_form_bg.png]"..
 				"background[0,1;10,4;ui_copper_chest_inventory.png]"..
 				"background[0,6;8,4;ui_main_inventory.png]")
 		meta:set_string("infotext", "Copper Locked Chest")

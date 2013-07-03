@@ -602,7 +602,7 @@ default.chest_formspec =
 	"list[current_name;main;0,1;8,4;]"..
 	"list[current_player;main;0,6;8,4;]"..
 	"label[0,0;Wooden Chest]"..
-	"background[-0.19,-0.25,;8.4,10.75;ui_form_bg.png]"..
+	"background[-0.19,-0.25;8.4,10.75;ui_form_bg.png]"..
 	"background[0,1;8,4;ui_wooden_chest_inventory.png]"..
 	"background[0,6;8,4;ui_main_inventory.png]"
 
@@ -613,7 +613,7 @@ function default.get_locked_chest_formspec(pos)
 		"list[nodemeta:".. spos .. ";main;0,1;8,4;]"..
 		"list[current_player;main;0,6;8,4;]"..
 		"label[0,0;Wooden Locked Chest]"..
-		"background[-0.19,-0.25,;8.4,10.75;ui_form_bg.png]"..
+		"background[-0.19,-0.25;8.4,10.75;ui_form_bg.png]"..
 		"background[0,1;8,4;ui_wooden_chest_inventory.png]"..
 		"background[0,6;8,4;ui_main_inventory.png]"
 	return formspec
@@ -754,7 +754,7 @@ function default.get_furnace_active_formspec(pos, percent)
 		"list[current_name;dst;5,1;2,2;]"..
 		"list[current_player;main;0,6;8,4;]"..
 		"label[0,0;Furnace]"..
-		"background[-0.19,-0.25,;8.4,10.75;ui_form_bg.png]"..
+		"background[-0.19,-0.25;8.4,10.75;ui_form_bg.png]"..
 		"background[0,6;8,4;ui_main_inventory.png]"..
 		"background[0,1;8,4;ui_furnace_inventory.png]"
 	return formspec
@@ -768,7 +768,7 @@ default.furnace_inactive_formspec =
 	"list[current_name;dst;5,1;2,2;]"..
 	"list[current_player;main;0,6;8,4;]"..
 	"label[0,0;Furnace]"..
-	"background[-0.19,-0.25,;8.4,10.75;ui_form_bg.png]"..
+	"background[-0.19,-0.25;8.4,10.75;ui_form_bg.png]"..
 	"background[0,6;8,4;ui_main_inventory.png]"..
 	"background[0,1;8,4;ui_furnace_inventory.png]"
 	

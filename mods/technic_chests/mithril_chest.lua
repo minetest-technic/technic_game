@@ -39,7 +39,7 @@ minetest.register_node(":technic:mithril_chest", {
 				"label[0,0;Mithril Chest]"..
 				"list[current_name;main;0,1;13,4;]"..
 				"list[current_player;main;0,6;8,4;]"..
-				"background[-0.19,-0.25,;13.4,10.75;ui_form_bg.png]"..
+				"background[-0.19,-0.25;13.4,10.75;ui_form_bg.png]"..
 				"background[0,1;13,4;ui_mithril_chest_inventory.png]"..
 				"background[0,6;8,4;ui_main_inventory.png]")
 		meta:set_string("infotext", "Mithril Chest")
@@ -92,7 +92,7 @@ on_construct = function(pos)
 				"label[0,0;Mithril Locked Chest]"..
 				"list[current_name;main;0,1;13,4;]"..
 				"list[current_player;main;0,6;8,4;]"..
-				"background[-0.19,-0.25,;13.4,10.75;ui_form_bg.png]"..
+				"background[-0.19,-0.25;13.4,10.75;ui_form_bg.png]"..
 				"background[0,1;13,4;ui_mithril_chest_inventory.png]"..
 				"background[0,6;8,4;ui_main_inventory.png]")
 		meta:set_string("infotext", "Mithril Locked Chest")

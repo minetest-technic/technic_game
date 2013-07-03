@@ -66,7 +66,7 @@ end
 gold_chest_formspec	=	"invsize[12,10;]"..
 						"list[current_name;main;0,1;12,4;]"..
 						"list[current_player;main;0,6;8,4;]"..
-						"background[-0.19,-0.25,;12.4,10.75;ui_form_bg.png]"..
+						"background[-0.19,-0.25;12.4,10.75;ui_form_bg.png]"..
 						"background[0,1;12,4;ui_gold_chest_inventory.png]"..
 						"background[0,6;8,4;ui_main_inventory.png]"..
 						get_pallette_buttons ()
