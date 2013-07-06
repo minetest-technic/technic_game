@@ -232,3 +232,10 @@ generate_line = function(s, ypos)
 	end
 	return texture
 end
+
+minetest.register_craft({
+	output = 'digilines_lcd:lcd',
+	recipe = {
+		{'digilines:wire_std_00000000', 'mesecons_materials:silicon', 'digilines:wire_std_00000000'},
+	}
+})

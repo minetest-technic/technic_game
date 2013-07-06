@@ -196,3 +196,17 @@ minetest.register_node("digilines_converters:m2d_converter_on", {
 		meta:set_string("channel", fields.channel)
 	end,
 })
+
+minetest.register_craft({
+	output = 'digilines_converters:d2m_converter_off',
+	recipe = {
+		{'digilines:wire_std_00000000', 'mesecons_materials:silicon', 'mesecons:mesecon'},
+	}
+})
+
+minetest.register_craft({
+	output = 'digilines_converters:m2d_converter_off',
+	recipe = {
+		{'mesecons:mesecon', 'mesecons_materials:silicon', 'digilines:wire_std_00000000'},
+	}
+})

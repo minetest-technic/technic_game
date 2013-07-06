@@ -55,3 +55,10 @@ minetest.register_node("digilines_lightsensor:lightsensor", {
 		meta:set_string("channel", fields.channel)
 	end,
 })
+
+minetest.register_craft({
+	output = 'digilines_lightsensor:lightsensor',
+	recipe = {
+		{'digilines:wire_std_00000000', 'technic:brass_ingot', 'digilines:wire_std_00000000'},
+	}
+})
