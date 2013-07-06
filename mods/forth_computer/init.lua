@@ -149,6 +149,11 @@ local function receive(cptr, caddr, clen, raddr)
 	end
 end
 
+local function delete_message(cptr, caddr, clen)
+	local channel = string_at(cptr, caddr, clen)
+	cptr.digiline_events[channel] = nil
+end
+
 local function set_channel(cptr, caddr, clen)
 	local channel = string_at(cptr, caddr, clen)
 	cptr.channel = channel
@@ -168,7 +173,7 @@ local function run_computer(pos,cptr)
 		if f == nil then return end
 		--print("Instr: "..tostring(instr).." PC:  "..tostring(cptr.PC).." SP: "..tostring(cptr.SP).." RP: "..tostring(cptr.RP).." X: "..tostring(cptr.X).." Y: "..tostring(cptr.Y).." Z: "..tostring(cptr.Z).." I: "..tostring(cptr.I))
 		cptr.PC = bit32.band(cptr.PC+1, 0xffff)
-		setfenv(f, {cptr = cptr, pos=pos, emit=emit, receive=receive, set_channel=set_channel, send_message=send_message, u16=u16, u32=u32, s16=s16, s32=s32, read=read, write=write, readC=readC, writeC=writeC, push=push, pop=pop, rpush=rpush, rpop=rpop, bit32=bit32, math=math})
+		setfenv(f, {cptr = cptr, pos=pos, emit=emit, receive=receive, delete_message=delete_message, set_channel=set_channel, send_message=send_message, u16=u16, u32=u32, s16=s16, s32=s32, read=read, write=write, readC=readC, writeC=writeC, push=push, pop=pop, rpush=rpush, rpop=rpop, bit32=bit32, math=math})
 		f()
 		cptr.cycles = cptr.cycles - 1
 		if cptr.paused or cptr.cycles == 0 then
@@ -288,8 +293,9 @@ ITABLE_RAW = {
 	[0x50] = "if cptr.has_input then\ncptr.has_input = false\nelse\ncptr.paused = true\ncptr.PC = u16(cptr.PC-1)\nend",
 	[0x51] = "emit(pos, cptr.X, cptr)",
 	[0x52] = "receive(cptr, cptr.X, cptr.Y, cptr.Z)", -- Digiline receive
-	[0x53] = "send_message(pos, cptr, cptr.X, cptr.Y)", -- Digiline send
-	[0x54] = "set_channel(cptr, cptr.X, cptr.Y)", -- Digiline set channel
+	[0x53] = "delete_message(cptr, cptr.X, cptr.Y)",
+	[0x54] = "send_message(pos, cptr, cptr.X, cptr.Y)", -- Digiline send
+	[0x55] = "set_channel(cptr, cptr.X, cptr.Y)", -- Digiline set channel
 }
 
 ITABLE = {}
