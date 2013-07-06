@@ -4,7 +4,7 @@ minetest.register_craft({
 	recipe = {
 		{'default:wood', 'default:wood', 'default:wood'},
 		{'default:diamond', 'default:diamond', 'default:diamond'},
-		{'default:stone', 'moreores:copper_ingot', 'default:stone'},
+		{'default:stone', 'default:copper_ingot', 'default:stone'},
 	}
 })
 

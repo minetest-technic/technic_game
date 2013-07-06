@@ -77,7 +77,7 @@ minetest.register_craftitem( "technic:copper_dust", {
 	})
 minetest.register_craft({
     type = "cooking",
-    output = "moreores:copper_ingot",
+    output = "default:copper_ingot",
     recipe = "technic:copper_dust",
 })
 
@@ -110,7 +110,7 @@ minetest.register_craftitem( "technic:gold_dust", {
 	})
 minetest.register_craft({
     type = "cooking",
-    output = "moreores:gold_ingot",
+    output = "default:gold_ingot",
     recipe = "technic:gold_dust",
 })
 
@@ -143,7 +143,7 @@ minetest.register_craftitem( "technic:bronze_dust", {
 	})
 minetest.register_craft({
     type = "cooking",
-    output = "moreores:bronze_ingot",
+    output = "default:bronze_ingot",
     recipe = "technic:bronze_dust",
 })
 
@@ -186,7 +186,7 @@ minetest.register_craft({
 	recipe = {
 		{'default:desert_stone', 'default:desert_stone', 'default:desert_stone'},
 		{'default:desert_stone', 'default:diamond', 'default:desert_stone'},
-		{'default:stone', 'moreores:copper_ingot', 'default:stone'},
+		{'default:stone', 'default:copper_ingot', 'default:stone'},
 	}
 })
 

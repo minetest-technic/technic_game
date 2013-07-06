@@ -20,18 +20,18 @@ local chest_mark_colors = {
 minetest.register_craft({
 	output = 'technic:gold_chest',
 	recipe = {
-		{'moreores:gold_ingot','moreores:gold_ingot','moreores:gold_ingot'},
-		{'moreores:gold_ingot','technic:silver_chest','moreores:gold_ingot'},
-		{'moreores:gold_ingot','moreores:gold_ingot','moreores:gold_ingot'},
+		{'default:gold_ingot','default:gold_ingot','default:gold_ingot'},
+		{'default:gold_ingot','technic:silver_chest','default:gold_ingot'},
+		{'default:gold_ingot','default:gold_ingot','default:gold_ingot'},
 	}
 })
 
 minetest.register_craft({
 	output = 'technic:gold_locked_chest',
 	recipe = {
-		{'moreores:gold_ingot','moreores:gold_ingot','moreores:gold_ingot'},
-		{'moreores:gold_ingot','technic:silver_locked_chest','moreores:gold_ingot'},
-		{'moreores:gold_ingot','moreores:gold_ingot','moreores:gold_ingot'},
+		{'default:gold_ingot','default:gold_ingot','default:gold_ingot'},
+		{'default:gold_ingot','technic:silver_locked_chest','default:gold_ingot'},
+		{'default:gold_ingot','default:gold_ingot','default:gold_ingot'},
 	}
 })
 

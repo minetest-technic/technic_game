@@ -77,7 +77,7 @@ minetest.register_craft({
 	recipe = {
 		{'default:diamond', 'default:steel_ingot', 'technic:battery'},
 		{'', 'default:steel_ingot', 'technic:battery'},
-		{'', '', 'moreores:copper_ingot'},
+		{'', '', 'default:copper_ingot'},
 	}
 })
 

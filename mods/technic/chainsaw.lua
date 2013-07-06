@@ -34,7 +34,7 @@ minetest.register_craft({
         recipe = {
                 {'technic:stainless_steel_ingot', 'technic:stainless_steel_ingot', 'technic:battery'},
                 {'technic:stainless_steel_ingot', 'technic:motor', 'technic:battery'},
-                {'','','moreores:copper_ingot'},
+                {'','','default:copper_ingot'},
         }
 })
 
