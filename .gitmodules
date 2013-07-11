@@ -1,0 +1,27 @@
+[submodule "mods/technic"]
+	path = mods/technic
+	url = https://github.com/RealBadAngel/technic.git
+[submodule "mods/digilines"]
+	path = mods/digilines
+	url = https://github.com/Jeija/minetest-mod-digilines.git
+[submodule "mods/mesecons"]
+	path = mods/mesecons
+	url = https://github.com/Jeija/minetest-mod-mesecons.git
+[submodule "mods/moretrees"]
+	path = mods/moretrees
+	url = https://github.com/VanessaE/moretrees.git
+[submodule "mods/pipeworks"]
+	path = mods/pipeworks
+	url = https://github.com/VanessaE/pipeworks.git
+[submodule "mods/plantlife"]
+	path = mods/plantlife
+	url = https://github.com/VanessaE/plantlife.git
+[submodule "mods/moreblocks"]
+	path = mods/moreblocks
+	url = https://github.com/Calinou/moreblocks
+[submodule "mods/moreores"]
+	path = mods/moreores
+	url = https://github.com/Calinou/moreores
+[submodule "mods/forth_computer"]
+	path = mods/forth_computer
+	url = https://github.com/Novatux/forth_computer.git
