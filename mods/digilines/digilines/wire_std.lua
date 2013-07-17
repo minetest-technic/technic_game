@@ -115,12 +115,3 @@ end
 end
 end
 end
-
-minetest.register_craft({
-	output = 'digilines:wire_std_00000000',
-	recipe = {
-		{'technic:rubber', 'mesecons:mesecon', 'technic:rubber'},
-		{'mesecons:mesecon', 'technic:rubber', 'mesecons:mesecon'},
-		{'technic:rubber', 'mesecons:mesecon', 'technic:rubber'},
-	}
-})

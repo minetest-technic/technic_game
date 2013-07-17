@@ -51,10 +51,3 @@ minetest.register_node("digilines_rtc:rtc", {
 		meta:set_string("channel", fields.channel)
 	end,
 })
-
-minetest.register_craft({
-	output = 'digilines_lcd:lcd',
-	recipe = {
-		{'digilines:wire_std_00000000', 'default:bronze_ingot', 'digilines:wire_std_00000000'},
-	}
-})
