@@ -25,3 +25,9 @@
 [submodule "mods/forth_computer"]
 	path = mods/forth_computer
 	url = https://github.com/Novatux/forth_computer.git
+[submodule "minetest-wireless"]
+	path = minetest-wireless
+	url = https://github.com/lordcirth/minetest-wireless.git
+[submodule "mods/wireless"]
+	path = mods/wireless
+	url = https://github.com/lordcirth/minetest-wireless.git
