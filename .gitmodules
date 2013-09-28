@@ -1,6 +1,6 @@
 [submodule "mods/technic"]
 	path = mods/technic
-	url = https://github.com/RealBadAngel/technic.git
+	url = https://github.com/minetest-technic/technic.git
 [submodule "mods/digilines"]
 	path = mods/digilines
 	url = https://github.com/Jeija/minetest-mod-digilines.git
