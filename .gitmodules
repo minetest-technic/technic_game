@@ -34,3 +34,9 @@
 [submodule "mods/stargate"]
 	path = mods/stargate
 	url = https://github.com/minetest-technic/stargate.git
+[submodule "mods/framedglass"]
+	path = mods/framedglass
+	url = https://github.com/minetest-technic/framedglass.git
+[submodule "mods/item_drop"]
+	path = mods/item_drop
+	url = https://github.com/PilzAdam/item_drop.git
