@@ -31,3 +31,6 @@
 [submodule "mods/unified_inventory"]
 	path = mods/unified_inventory
 	url = https://github.com/minetest-technic/unified_inventory.git
+[submodule "mods/stargate"]
+	path = mods/stargate
+	url = https://github.com/minetest-technic/stargate.git
