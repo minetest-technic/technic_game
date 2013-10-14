@@ -131,27 +131,13 @@ minetest.register_on_punchnode(on_punchnode)
 --
 
 default.cool_lava_source = function(pos)
-	if default.search_nearby_nodes(pos,"default:water_source")
-		or default.search_nearby_nodes(pos,"default:water_flowing") then
-			minetest.env:set_node(pos, {name="default:obsidian"})
-	end
+	minetest.set_node(pos, {name="default:obsidian"})
+	minetest.sound_play("default_cool_lava", {pos = pos,  gain = 0.25})
 end
 
 default.cool_lava_flowing = function(pos)
-	if default.search_nearby_nodes(pos,"default:water_source")
-		or default.search_nearby_nodes(pos,"default:water_flowing") then
-			minetest.env:set_node(pos, {name="default:stone"})
-	end
-end
-
-default.search_nearby_nodes = function(pos, node)
-	if minetest.env:get_node({x=pos.x-1, y=pos.y, z=pos.z}).name == node then return true end
-	if minetest.env:get_node({x=pos.x+1, y=pos.y, z=pos.z}).name == node then return true end
-	if minetest.env:get_node({x=pos.x, y=pos.y-1, z=pos.z}).name == node then return true end
-	if minetest.env:get_node({x=pos.x, y=pos.y+1, z=pos.z}).name == node then return true end
-	if minetest.env:get_node({x=pos.x, y=pos.y, z=pos.z-1}).name == node then return true end
-	if minetest.env:get_node({x=pos.x, y=pos.y, z=pos.z+1}).name == node then return true end
-	return false
+	minetest.set_node(pos, {name="default:stone"})
+	minetest.sound_play("default_cool_lava", {pos = pos,  gain = 0.25})
 end
 
 minetest.register_abm({
@@ -161,7 +147,7 @@ minetest.register_abm({
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		default.cool_lava_flowing(pos, node, active_object_count, active_object_count_wider)
-end,
+	end,
 })
 
 minetest.register_abm({
@@ -171,7 +157,7 @@ minetest.register_abm({
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		default.cool_lava_source(pos, node, active_object_count, active_object_count_wider)
-end,
+	end,
 })
 
 --
