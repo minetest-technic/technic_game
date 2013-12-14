@@ -4,7 +4,6 @@
 -- Aliases for map generator outputs
 --
 
-minetest.register_alias("mapgen_air", "air")
 minetest.register_alias("mapgen_stone", "default:stone")
 minetest.register_alias("mapgen_tree", "default:tree")
 minetest.register_alias("mapgen_leaves", "default:leaves")
@@ -363,7 +362,7 @@ function default.make_nyancat(pos, facedir, length)
 	elseif facedir == 3 then
 		tailvec.x = -1
 	else
-		print("default.make_nyancat(): Invalid facedir: "+dump(facedir))
+		--print("default.make_nyancat(): Invalid facedir: "+dump(facedir))
 		facedir = 0
 		tailvec.z = 1
 	end
@@ -372,7 +371,7 @@ function default.make_nyancat(pos, facedir, length)
 	for i=1,length do
 		p.x = p.x + tailvec.x
 		p.z = p.z + tailvec.z
-		minetest.set_node(p, {name="default:nyancat_rainbow"})
+		minetest.set_node(p, {name="default:nyancat_rainbow", param2=facedir})
 	end
 end
 
