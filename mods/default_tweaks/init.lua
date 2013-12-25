@@ -73,8 +73,8 @@ default.furnace_inactive_formspec = default.furnace_inactive_formspec
 	.."background[0,1;8,4;ui_furnace_inventory.png]"
 
 local old_get_furnace_active_formspec = default.get_furnace_active_formspec
-function default.get_furnace_active_formspec(pos)
-	return old_get_furnace_active_formspec(pos)
+function default.get_furnace_active_formspec(pos, percent)
+	return old_get_furnace_active_formspec(pos, percent)
 		.."label[0,0;Furnace Active]"
 		.."background[-0.19,-0.25;8.4,10.75;ui_form_bg.png]"
 		.."background[0,6;8,4;ui_main_inventory.png]"
