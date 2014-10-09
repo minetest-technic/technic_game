@@ -18,10 +18,10 @@
 	url = https://github.com/VanessaE/plantlife.git
 [submodule "mods/moreblocks"]
 	path = mods/moreblocks
-	url = https://github.com/Calinou/moreblocks.git
+	url = https://gitorious.org/calinou/moreblocks.git
 [submodule "mods/moreores"]
 	path = mods/moreores
-	url = https://github.com/Calinou/moreores.git
+	url = https://gitorious.org/calinou/moreores.git
 [submodule "mods/forth_computer"]
 	path = mods/forth_computer
 	url = https://github.com/Novatux/forth_computer.git
