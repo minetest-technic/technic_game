@@ -24,7 +24,7 @@
 	url = https://github.com/Calinou/moreores.git
 [submodule "mods/forth_computer"]
 	path = mods/forth_computer
-	url = https://github.com/Novatux/forth_computer.git
+	url = https://github.com/Ekdohibs/forth_computer.git
 [submodule "mods/wireless"]
 	path = mods/wireless
 	url = https://github.com/lordcirth/minetest-wireless.git
