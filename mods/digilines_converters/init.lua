@@ -18,10 +18,10 @@ local on_digiline_receive = function (pos, node, channel, msg)
 	local chan = minetest.get_meta(pos):get_string("channel")
 	if channel == chan then
 		if node.name == "digilines_converters:d2m_converter_off" and msg == "on" then
-			minetest.swap_node(pos, {name="digilines_converters:d2m_converter_on"})
+			minetest.swap_node(pos, {name="digilines_converters:d2m_converter_on", param2 = node.param2})
 			mesecon.receptor_on(pos, rotate_rules(node, {{x=1,y=0,z=0}}))
 		elseif node.name == "digilines_converters:d2m_converter_on" and msg == "off" then
-			minetest.swap_node(pos, {name="digilines_converters:d2m_converter_off"})
+			minetest.swap_node(pos, {name="digilines_converters:d2m_converter_off", param2 = node.param2})
 			mesecon.receptor_off(pos, rotate_rules(node, {{x=1,y=0,z=0}}))
 		end
 	end
