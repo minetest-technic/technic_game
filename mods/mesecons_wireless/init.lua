@@ -83,8 +83,8 @@ minetest.register_node("mesecons_wireless:emitter", {
 				local channel = meta:get_string("channel")
 				local w = get_wireless_receivers(channel)
 				for _,i in ipairs(w) do
-					mesecon:receptor_on(i)
-					mesecon:swap_node(i, "mesecons_wireless:receiver_on")
+					mesecon.receptor_on(i)
+					minetest.swap_node(i, {name="mesecons_wireless:receiver_on"})
 				end
 			end,
 			action_off = function(pos)
@@ -92,8 +92,8 @@ minetest.register_node("mesecons_wireless:emitter", {
 				local channel = meta:get_string("channel")
 				local w = get_wireless_receivers(channel)
 				for _,i in ipairs(w) do
-					mesecon:receptor_off(i)
-					mesecon:swap_node(i, "mesecons_wireless:receiver")
+					mesecon.receptor_off(i)
+					minetest.swap_node(i, {name="mesecons_wireless:receiver"})
 				end
 			end,
 		}
