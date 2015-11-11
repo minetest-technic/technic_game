@@ -131,7 +131,7 @@ minetest.register_node("digilines_converters:m2d_converter_off", {
 			action_on = function(pos, node)
 				local c = minetest.get_meta(pos):get_string("channel")
 				digiline:receptor_send(pos, rotate_rules(node, {{x=-1,y=0,z=0}}), c, "on")
-				minetest.swap_node(pos, {name="digilines_converters:m2d_converter_on"})
+				minetest.swap_node(pos, {name="digilines_converters:m2d_converter_on", param2 = node.param2})
 			end,
 			action_off = function(pos, node)
 				local c = minetest.get_meta(pos):get_string("channel")
@@ -182,7 +182,7 @@ minetest.register_node("digilines_converters:m2d_converter_on", {
 			action_off = function(pos, node)
 				local c = minetest.get_meta(pos):get_string("channel")
 				digiline:receptor_send(pos, rotate_rules(node, {{x=-1,y=0,z=0}}), c, "off")
-				minetest.swap_node(pos, {name="digilines_converters:m2d_converter_off"})
+				minetest.swap_node(pos, {name="digilines_converters:m2d_converter_off", param2 = node.param2})
 			end,
 		},
 	},
