@@ -1,6 +1,6 @@
 local function rotate_rules(node, rules)
 	for rotations = 1, node.param2 do
-		rules = mesecon:rotate_rules_left(rules)
+		rules = mesecon.rotate_rules_left(rules)
 	end
 	return rules
 end
@@ -18,11 +18,11 @@ local on_digiline_receive = function (pos, node, channel, msg)
 	local chan = minetest.get_meta(pos):get_string("channel")
 	if channel == chan then
 		if node.name == "digilines_converters:d2m_converter_off" and msg == "on" then
-			mesecon:swap_node(pos, "digilines_converters:d2m_converter_on")
-			mesecon:receptor_on(pos, rotate_rules(node, {{x=1,y=0,z=0}}))
+			minetest.swap_node(pos, {name="digilines_converters:d2m_converter_on"})
+			mesecon.receptor_on(pos, rotate_rules(node, {{x=1,y=0,z=0}}))
 		elseif node.name == "digilines_converters:d2m_converter_on" and msg == "off" then
-			mesecon:swap_node(pos, "digilines_converters:d2m_converter_off")
-			mesecon:receptor_off(pos, rotate_rules(node, {{x=1,y=0,z=0}}))
+			minetest.swap_node(pos, {name="digilines_converters:d2m_converter_off"})
+			mesecon.receptor_off(pos, rotate_rules(node, {{x=1,y=0,z=0}}))
 		end
 	end
 end
@@ -36,7 +36,7 @@ minetest.register_node("digilines_converters:d2m_converter_off", {
 	sunlight_propagates = true,
 	groups = {dig_immediate=2, mesecon=2},
 	node_box = converter_nbx,
-	digiline = 
+	digiline =
 	{
 		effector = {
 			rules = function(node)
@@ -75,7 +75,7 @@ minetest.register_node("digilines_converters:d2m_converter_on", {
 	sunlight_propagates = true,
 	groups = {dig_immediate=2, mesecon=2, not_in_creative_inventory=1},
 	node_box = converter_nbx,
-	digiline = 
+	digiline =
 	{
 		effector = {
 			rules = function(node)
@@ -113,7 +113,7 @@ minetest.register_node("digilines_converters:m2d_converter_off", {
 	sunlight_propagates = true,
 	groups = {dig_immediate=2, mesecon=2},
 	node_box = converter_nbx,
-	digiline = 
+	digiline =
 	{
 		receptor =
 		{
@@ -131,7 +131,7 @@ minetest.register_node("digilines_converters:m2d_converter_off", {
 			action_on = function(pos, node)
 				local c = minetest.get_meta(pos):get_string("channel")
 				digiline:receptor_send(pos, rotate_rules(node, {{x=-1,y=0,z=0}}), c, "on")
-				mesecon:swap_node(pos, "digilines_converters:m2d_converter_on")
+				minetest.swap_node(pos, {name="digilines_converters:m2d_converter_on"})
 			end,
 			action_off = function(pos, node)
 				local c = minetest.get_meta(pos):get_string("channel")
@@ -160,7 +160,7 @@ minetest.register_node("digilines_converters:m2d_converter_on", {
 	drop = "digilines_converters:m2d_converter_off",
 	groups = {dig_immediate=2, mesecon=2, not_in_creative_inventory=1},
 	node_box = converter_nbx,
-	digiline = 
+	digiline =
 	{
 		receptor =
 		{
@@ -182,7 +182,7 @@ minetest.register_node("digilines_converters:m2d_converter_on", {
 			action_off = function(pos, node)
 				local c = minetest.get_meta(pos):get_string("channel")
 				digiline:receptor_send(pos, rotate_rules(node, {{x=-1,y=0,z=0}}), c, "off")
-				mesecon:swap_node(pos, "digilines_converters:m2d_converter_off")
+				minetest.swap_node(pos, {name="digilines_converters:m2d_converter_off"})
 			end,
 		},
 	},
